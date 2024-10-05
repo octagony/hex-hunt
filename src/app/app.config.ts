@@ -1,5 +1,9 @@
 // MAIN
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  isDevMode,
+  provideZoneChangeDetection,
+} from '@angular/core';
 
 //ROUTES
 import { provideRouter } from '@angular/router';
@@ -16,7 +20,8 @@ import { simpleSharp } from '@ng-icons/simple-icons';
 // STORE
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
-import { hexReducer } from '../store/hex/hex.reducers';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { hexReducer } from '../store/reducers/hex.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,8 +29,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideIcons({ matHexagonOutline, matWbSunnyOutline, simpleSharp }),
     provideStore({
-      hexStore: hexReducer,
+      hexData: hexReducer,
     }),
     provideEffects(),
+    provideStoreDevtools({
+      maxAge: 3,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      trace: false,
+      traceLimit: 75,
+      connectInZone: true,
+    }),
   ],
 };
