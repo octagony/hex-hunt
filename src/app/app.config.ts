@@ -12,10 +12,14 @@ import {
   matWbSunnyOutline,
 } from '@ng-icons/material-icons/outline';
 
+// STORE
+import { provideStore } from '@ngrx/store';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideIcons({ matHexagonOutline, matWbSunnyOutline }),
+    provideStore(),
   ],
 };
