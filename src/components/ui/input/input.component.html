@@ -1,0 +1,12 @@
+<div class="app-input-container" [class]="size">
+  <span class="app-input-icon-wrapper">
+    <ng-icon class="app-input-icon" [name]="iconName" size="20" />
+  </span>
+  <input
+    class="app-input"
+    [class.invalid]="invalid"
+    [maxLength]="maxLength"
+    (input)="updateInput($event)"
+    [value]="input"
+  />
+</div>
