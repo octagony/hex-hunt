@@ -1,4 +1,5 @@
 @import "variables";
+@import "functions";
 
 .container {
   max-width: $media-width-sm;
@@ -6,6 +7,17 @@
   width: 100%;
   height: 100%;
   padding-block: rem-calc(16);
+}
+
+.app-grid {
+  margin-top: rem-calc(50);
+  grid-template-columns: minmax(200px, 30%) 1fr;
+}
+
+.right-grid {
+  .right-grid-title {
+    font-size: $fs-28;
+  }
 }
 
 @media (min-width: $media-width-md) {

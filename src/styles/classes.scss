@@ -10,7 +10,6 @@
 }
 
 // ITEMS LOCATION
-
 .justify-between {
   justify-content: space-between;
 }
@@ -25,6 +24,15 @@
 
 .items-center {
   place-items: center;
+}
+
+// DIRECTIONS
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 // GAPS
