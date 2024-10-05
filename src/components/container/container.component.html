@@ -1,3 +1,22 @@
 <div class="container">
-  <app-header></app-header>
+  <app-header />
+  <div class="app-grid d-grid">
+    <div class="left-grid">
+      <app-hex-generator />
+    </div>
+    <div class="right-grid d-flex flex-column">
+      <h3 class="right-grid-title">Guess the hex code!</h3>
+      <app-input
+        class="mt-4"
+        [size]="'large'"
+        [maxLength]="6"
+        [input]="inputCode"
+        (inputChange)="onInputChange($event)"
+        [iconName]="'simpleSharp'"
+      ></app-input>
+      <ng-template [ngIf]="inputCode.length === 6">
+        <app-comparison [userString]="generatedHexCode" class="mt-4" />
+      </ng-template>
+    </div>
+  </div>
 </div>

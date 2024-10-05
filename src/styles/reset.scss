@@ -40,6 +40,11 @@ button,
 textarea,
 select {
   font: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

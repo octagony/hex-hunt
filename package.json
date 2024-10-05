@@ -21,7 +21,10 @@
     "@ng-icons/core": "^29.5.1",
     "@ng-icons/heroicons": "^29.5.1",
     "@ng-icons/material-icons": "^29.5.1",
-    "rxjs": "~7.8.0",
+    "@ng-icons/simple-icons": "^29.5.1",
+    "@ngrx/effects": "^18.0.2",
+    "@ngrx/store": "^18.0.2",
+    "@ngrx/store-devtools": "^18.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

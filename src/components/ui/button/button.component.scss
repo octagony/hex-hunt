@@ -1,0 +1,26 @@
+@import "functions";
+@import "colors";
+
+.app-button {
+  padding: rem-calc(12);
+  border: rem-calc(1) solid $light-bolder;
+  border-radius: rem-calc(10);
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.primary {
+    background-color: $light-text;
+    color: $light-background;
+
+    &:hover {
+      background-color: $light-emperor;
+    }
+
+    &:active {
+      background-color: $light-bolder;
+    }
+  }
+}

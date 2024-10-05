@@ -1,0 +1,9 @@
+<div class="app-hex-generator d-grid items-center">
+  <div
+    class="app-hex-generator-container"
+    [style.background-color]="hexCode"
+  ></div>
+  <app-button class="mx-auto mt-2" [type]="'primary'" (click)="getNewColor()"
+    >Get new color</app-button
+  >
+</div>
