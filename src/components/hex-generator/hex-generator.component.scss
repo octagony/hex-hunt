@@ -1,0 +1,13 @@
+@import "functions";
+@import "colors";
+
+.app-hex-generator {
+  margin: rem-calc(20);
+
+  .app-hex-generator-container {
+    height: rem-calc(200);
+    width: rem-calc(200);
+    border-radius: rem-calc(20);
+    border: rem-calc(1) solid $light-emperor;
+  }
+}
