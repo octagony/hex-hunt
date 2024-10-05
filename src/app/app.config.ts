@@ -11,6 +11,7 @@ import {
   matHexagonOutline,
   matWbSunnyOutline,
 } from '@ng-icons/material-icons/outline';
+import { simpleSharp } from '@ng-icons/simple-icons';
 
 // STORE
 import { provideEffects } from '@ngrx/effects';
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideIcons({ matHexagonOutline, matWbSunnyOutline }),
+    provideIcons({ matHexagonOutline, matWbSunnyOutline, simpleSharp }),
     provideStore({
       hexStore: hexReducer,
     }),

@@ -6,6 +6,14 @@
     </div>
     <div class="right-grid d-flex flex-column">
       <h3 class="right-grid-title">Guess the hex code!</h3>
+      <app-input
+        class="mt-4"
+        [size]="'large'"
+        [maxLength]="6"
+        [input]="inputCode"
+        (inputChange)="onInputChange($event)"
+        [iconName]="'simpleSharp'"
+      ></app-input>
     </div>
   </div>
 </div>
