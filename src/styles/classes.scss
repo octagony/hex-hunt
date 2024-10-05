@@ -1,0 +1,60 @@
+@import "functions";
+
+// DISPLAY
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+// ITEMS LOCATION
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+// GAPS
+.gap-0 {
+  gap: 0;
+}
+
+.gap-1 {
+  gap: rem-calc(4);
+}
+
+.gap-1 {
+  gap: rem-calc(8);
+}
+
+.gap-3 {
+  gap: rem-calc(12);
+}
+
+.gap-4 {
+  gap: rem-calc(16);
+}
+
+.gap-5 {
+  gap: rem-calc(20);
+}
+
+.gap-6 {
+  gap: rem-calc(24);
+}
+
+// CURSOR EFFECTS
+.hover {
+  cursor: pointer;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.15s ease-in-out;
+  }
+}
