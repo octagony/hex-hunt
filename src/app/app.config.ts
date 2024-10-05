@@ -13,13 +13,18 @@ import {
 } from '@ng-icons/material-icons/outline';
 
 // STORE
+import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
+import { hexReducer } from '../store/hex/hex.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideIcons({ matHexagonOutline, matWbSunnyOutline }),
-    provideStore(),
+    provideStore({
+      hexStore: hexReducer,
+    }),
+    provideEffects(),
   ],
 };

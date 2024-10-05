@@ -1,0 +1,12 @@
+@import "functions";
+@import "colors";
+
+.app-button {
+  padding: rem-calc(8);
+  border: rem-calc(1) solid $light-bolder;
+  border-radius: rem-calc(10);
+
+  &.primary {
+    background-color: $light-background;
+  }
+}
