@@ -24,7 +24,7 @@
     "@ng-icons/simple-icons": "^29.5.1",
     "@ngrx/effects": "^18.0.2",
     "@ngrx/store": "^18.0.2",
-    "rxjs": "~7.8.0",
+    "@ngrx/store-devtools": "^18.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

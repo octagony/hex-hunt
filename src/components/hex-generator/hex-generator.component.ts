@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { SetHexAction } from '../../store/hex/hex.actions';
+import { setHexString } from '../../store/actions/hex.action';
 import { ButtonComponent } from '../ui/button/button.component';
 
 @Component({
@@ -30,8 +30,8 @@ export class HexGeneratorComponent implements OnInit {
     this.generateNewColor();
   }
 
-  private generateNewColor() {
+  generateNewColor() {
     this.hexCode = this.generateHexCode();
-    this.store.dispatch(new SetHexAction(this.hexCode));
+    this.store.dispatch(setHexString({ hexString: this.hexCode }));
   }
 }
