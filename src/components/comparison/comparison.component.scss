@@ -1,0 +1,14 @@
+@import "functions";
+@import "colors";
+
+.comparison-wrapper {
+  font-size: $fs-24;
+
+  .comparison-char-right {
+    background-color: $light-text-green;
+  }
+
+  .comparison-char-wrong {
+    background-color: $light-text-red;
+  }
+}
