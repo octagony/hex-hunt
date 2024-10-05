@@ -23,6 +23,14 @@ export class HexGeneratorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.generateNewColor();
+  }
+
+  getNewColor(): void {
+    this.generateNewColor();
+  }
+
+  private generateNewColor() {
     this.hexCode = this.generateHexCode();
     this.store.dispatch(new SetHexAction(this.hexCode));
   }
