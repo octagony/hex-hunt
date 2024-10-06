@@ -4,11 +4,15 @@
 .comparison-wrapper {
   font-size: $fs-24;
 
-  .comparison-char-right {
+  .right {
     background-color: $light-text-green;
   }
 
-  .comparison-char-wrong {
+  .semi-right {
+    background-color: $light-text-yellow;
+  }
+
+  .wrong {
     background-color: $light-text-red;
   }
 }

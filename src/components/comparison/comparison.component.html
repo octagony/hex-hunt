@@ -1,12 +1,6 @@
 <div class="comparison-wrapper">
   <span class="comparison-hex">#</span>
   @for (item of userStringAnswers; track $index) {
-  <span
-    class="comparison-char"
-    [classList]="
-      item.status ? 'comparison-char-right' : 'comparison-char-wrong'
-    "
-    >{{ item.char }}</span
-  >
+  <span class="comparison-char" [className]="item.status">{{ item.char }}</span>
   }
 </div>
