@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { setGameStatus } from '../../store/actions/game.action';
 import { selectHexArrayString } from '../../store/selectors/hex.selector';
 
 @Component({
@@ -34,5 +35,9 @@ export class ComparisonComponent implements OnInit {
           return { id: index, char, status: 'wrong' };
       }
     });
+
+    if (this.userStringAnswers.every((item) => item.status === 'right')) {
+      this.store.dispatch(setGameStatus({ status: 'finished' }));
+    }
   }
 }
