@@ -13,7 +13,7 @@ import { selectHexArrayString } from '../../store/selectors/hex.selector';
 export class ComparisonComponent implements OnInit {
   @Input() userString?: string;
 
-  userStringAnswers: Array<{ id: number; char: string; status: boolean }> = [];
+  userStringAnswers: Array<{ id: number; char: string; status: string }> = [];
   hexArray$?: Array<string>;
 
   constructor(private store: Store) {
@@ -25,11 +25,14 @@ export class ComparisonComponent implements OnInit {
   ngOnInit(): void {
     const stringSplit = this.userString?.split('#').at(1)?.split('')!;
     this.userStringAnswers = stringSplit.map((char, index) => {
-      return {
-        id: index,
-        char,
-        status: char === (this.hexArray$ && this.hexArray$[index]) || false,
-      };
+      switch (true) {
+        case this.hexArray$![index] === char:
+          return { id: index, char, status: 'right' };
+        case this.hexArray$!.includes(char):
+          return { id: index, char, status: 'semi-right' };
+        default:
+          return { id: index, char, status: 'wrong' };
+      }
     });
   }
 }
