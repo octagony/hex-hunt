@@ -1,6 +1,7 @@
 <div class="comparison-wrapper">
+  @if (userStringAnswers.length) {
   <span class="comparison-hex">#</span>
-  @for (item of userStringAnswers; track $index) {
+  } @for (item of userStringAnswers; track $index) {
   <span class="comparison-char" [className]="item.status">{{ item.char }}</span>
   }
 </div>

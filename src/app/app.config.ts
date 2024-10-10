@@ -21,6 +21,7 @@ import { simpleSharp } from '@ng-icons/simple-icons';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { gameReducer } from '../store/reducers/game.reducer';
 import { hexReducer } from '../store/reducers/hex.reducer';
 
 export const appConfig: ApplicationConfig = {
@@ -30,6 +31,7 @@ export const appConfig: ApplicationConfig = {
     provideIcons({ matHexagonOutline, matWbSunnyOutline, simpleSharp }),
     provideStore({
       hexData: hexReducer,
+      gameData: gameReducer,
     }),
     provideEffects(),
     provideStoreDevtools({

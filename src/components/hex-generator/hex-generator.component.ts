@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { setGameStatus } from '../../store/actions/game.action';
 import { setHexString } from '../../store/actions/hex.action';
 import { ButtonComponent } from '../ui/button/button.component';
 
@@ -33,5 +34,6 @@ export class HexGeneratorComponent implements OnInit {
   generateNewColor() {
     this.hexCode = this.generateHexCode();
     this.store.dispatch(setHexString({ hexString: this.hexCode }));
+    this.store.dispatch(setGameStatus({ status: 'started' }));
   }
 }

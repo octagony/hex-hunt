@@ -1,6 +1,13 @@
 import { NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  NgZone,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
+import { setGameStatus } from '../../store/actions/game.action';
 import { selectHexArrayString } from '../../store/selectors/hex.selector';
 
 @Component({
@@ -10,20 +17,24 @@ import { selectHexArrayString } from '../../store/selectors/hex.selector';
   templateUrl: './comparison.component.html',
   styleUrl: './comparison.component.scss',
 })
-export class ComparisonComponent implements OnInit {
+export class ComparisonComponent implements OnChanges {
   @Input() userString?: string;
 
   userStringAnswers: Array<{ id: number; char: string; status: string }> = [];
   hexArray$?: Array<string>;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private ngZone: NgZone) {
     this.store.select(selectHexArrayString).subscribe((hexArray) => {
       this.hexArray$ = hexArray;
     });
   }
 
-  ngOnInit(): void {
-    const stringSplit = this.userString?.split('#').at(1)?.split('')!;
+  ngOnChanges(changes: SimpleChanges) {
+    this.checkComparison(changes['userString'].currentValue);
+  }
+
+  async checkComparison(userString: string) {
+    const stringSplit = userString?.split('#').at(1)?.split('')! || [];
     this.userStringAnswers = stringSplit.map((char, index) => {
       switch (true) {
         case this.hexArray$![index] === char:
@@ -34,5 +45,13 @@ export class ComparisonComponent implements OnInit {
           return { id: index, char, status: 'wrong' };
       }
     });
+
+    if (
+      this.userStringAnswers.length &&
+      this.userStringAnswers.every((item) => item.status === 'right')
+    ) {
+      await Promise.resolve();
+      this.store.dispatch(setGameStatus({ status: 'finished' }));
+    }
   }
 }
