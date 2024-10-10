@@ -1,7 +1,7 @@
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GameStatus } from '../../models/game.model';
+import { Observable } from 'rxjs';
 import { setAttemptsCount } from '../../store/actions/game.action';
 import {
   selectAttemptsData,
@@ -17,6 +17,7 @@ import { InputComponent } from '../ui/input/input.component';
   selector: 'app-container',
   standalone: true,
   imports: [
+    CommonModule,
     HeaderComponent,
     HexGeneratorComponent,
     InputComponent,
@@ -30,14 +31,12 @@ export class ContainerComponent {
   inputCode: string = '';
   generatedHexCode: string = '';
 
-  hexCode$!: string;
+  hexCode$!: Observable<string>;
   attemptsCount$!: number;
-  gameStatus$!: GameStatus;
+  gameStatus$!: string;
 
-  constructor(private store: Store) {
-    this.store.select(selectHexString).subscribe((hexString) => {
-      this.hexCode$ = hexString;
-    });
+  constructor(public store: Store) {
+    this.hexCode$ = this.store.select(selectHexString);
 
     this.store.select(selectAttemptsData).subscribe((attemptsCount) => {
       this.attemptsCount$ = attemptsCount.count;
@@ -55,5 +54,12 @@ export class ContainerComponent {
       this.generatedHexCode = `#${input}`;
       this.store.dispatch(setAttemptsCount({ count: this.attemptsCount$ + 1 }));
     }
+  }
+
+  ngAfterViewInit() {
+    this.hexCode$.subscribe(() => {
+      this.inputCode = '';
+      this.generatedHexCode = '';
+    });
   }
 }

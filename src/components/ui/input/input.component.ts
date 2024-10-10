@@ -14,6 +14,7 @@ export class InputComponent {
   @Input() invalid: boolean = false;
   @Input() iconName: string = '';
   @Input() maxLength: number = 0;
+  @Input() isDisabled: boolean = false;
 
   @Input() input: string = '';
   @Output() inputChange = new EventEmitter<string>();
