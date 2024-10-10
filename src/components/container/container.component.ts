@@ -11,18 +11,20 @@ import { selectHexString } from '../../store/selectors/hex.selector';
 import { ComparisonComponent } from '../comparison/comparison.component';
 import { HeaderComponent } from '../header/header.component';
 import { HexGeneratorComponent } from '../hex-generator/hex-generator.component';
+import { ResultStatsComponent } from '../result-stats/result-stats.component';
 import { InputComponent } from '../ui/input/input.component';
 
 @Component({
   selector: 'app-container',
   standalone: true,
   imports: [
+    NgIf,
     CommonModule,
     HeaderComponent,
     HexGeneratorComponent,
     InputComponent,
     ComparisonComponent,
-    NgIf,
+    ResultStatsComponent,
   ],
   templateUrl: './container.component.html',
   styleUrl: './container.component.scss',

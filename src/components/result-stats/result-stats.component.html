@@ -1,0 +1,21 @@
+<div class="app-result-stats-wrapper">
+  <h4 class="app-result-stats-title">Yes, you're right!</h4>
+  <div class="app-result-stats-grid-stats-wrapper d-grid mt-4">
+    <div class="app-result-stats-grid-stats-row d-grid">
+      <span class="app-result-stats-grid-stats-column">Right Answer:</span>
+      <span
+        [ngStyle]="{ 'background-color': hexString | async }"
+        class="app-result-stats-grid-stats-column"
+        >{{ hexString | async }}</span
+      >
+    </div>
+    <div class="app-result-stats-grid-stats-row d-grid">
+      <span class="app-result-stats-grid-stats-column"
+        >Number of attempts:</span
+      >
+      <span class="app-result-stats-grid-stats-column">
+        {{ attemptsCount }}</span
+      >
+    </div>
+  </div>
+</div>
