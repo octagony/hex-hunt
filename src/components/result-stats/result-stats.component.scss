@@ -1,0 +1,21 @@
+@import "variables";
+@import "functions";
+
+.app-result-stats-wrapper {
+  .app-result-stats-title {
+    font-size: $fs-28;
+  }
+
+  .app-result-stats-grid-stats-wrapper {
+    row-gap: rem-calc(4);
+    font-size: $fs-24;
+  }
+
+  .app-result-stats-grid-stats-row {
+    grid-template-columns: minmax(rem-calc(250), rem-calc(300)) 1fr;
+  }
+
+  .app-result-stats-grid-stats-column {
+    max-width: max-content;
+  }
+}
